@@ -1,0 +1,13 @@
+.text-center {
+  text-align: center;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1.5rem;
+  background: #030440;
+  color: #e9d8a6;
+}
