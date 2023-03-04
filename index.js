@@ -647,26 +647,49 @@ index.js:563 (8) ['best prog lang?', 'c++', 'js', 'phyton', 'php', 2, "that's d
 // // replaceAll
 // console.log(str.replaceAll("Sina", "Ali")); //I'm Ali. It's Ali!
 
-const plane = "Airbus A320Neo";
-console.log(plane.includes("A320")); //true
-console.log(plane.includes("Ai")); //true
-console.log(plane.includes("ai")); //false
-console.log(plane.includes("B737")); //false
+// const plane = "Airbus A320Neo";
+// console.log(plane.includes("A320")); //true
+// console.log(plane.includes("Ai")); //true
+// console.log(plane.includes("ai")); //false
+// console.log(plane.includes("B737")); //false
 
-console.log(plane.startsWith("Airb")); //true
-console.log(plane.startsWith("AirB")); //false
+// console.log(plane.startsWith("Airb")); //true
+// console.log(plane.startsWith("AirB")); //false
 
-console.log(plane.endsWith("Neo")); //true
-console.log(plane.endsWith("New")); //false
+// console.log(plane.endsWith("Neo")); //true
+// console.log(plane.endsWith("New")); //false
 
-function planeChecker(model) {
-  if (model.startsWith("Airbus") && model.endsWith("Neo"))
-    console.log("this plane is a part of new Airbus family");
-  else if (model.startsWith("Airbus") && !model.endsWith("Neo"))
-    console.log("this plane is a part of old Airbus family");
-  else console.log("this plane is not a part of Airbus family");
+// function planeChecker(model) {
+//   if (model.startsWith("Airbus") && model.endsWith("Neo"))
+//     console.log("this plane is a part of new Airbus family");
+//   else if (model.startsWith("Airbus") && !model.endsWith("Neo"))
+//     console.log("this plane is a part of old Airbus family");
+//   else console.log("this plane is not a part of Airbus family");
+// }
+
+// planeChecker("Airbus A320Neo"); //this plane is a part of new Airbus family
+// planeChecker("Airbus A320"); //this plane is a part of old Airbus family
+// planeChecker("Boeing B737Neo"); //this plane is not a part of Airbus family
+
+// SPLITE
+console.log("a+very+nice+string".split("+")); // ['a', 'very', 'nice', 'string']
+
+const fullName = "Sina Pirvand";
+const [firstName, LastName] = fullName.split(" ");
+console.log(firstName, LastName); // Sina Pirvand
+
+// JOIN
+const newName = ["Mr.", firstName.toUpperCase(), LastName].join(" ");
+console.log(newName); // Mr. SINA Pirvand
+
+// MIXED
+function nameCapitalizer(name) {
+  const words = name.split(" ");
+  const nameUpper = [];
+  for (const word of words) {
+    nameUpper.push(word.replace(word[0], word[0].toUpperCase()));
+  }
+  console.log(nameUpper.join(" "));
 }
-
-planeChecker("Airbus A320Neo"); //this plane is a part of new Airbus family
-planeChecker("Airbus A320"); //this plane is a part of old Airbus family
-planeChecker("Boeing B737Neo"); //this plane is not a part of Airbus family
+nameCapitalizer("sina pirvand"); // Sina Pirvand
+nameCapitalizer("neymar junior da silva"); // Neymar Junior Da Silva
