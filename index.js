@@ -671,25 +671,50 @@ index.js:563 (8) ['best prog lang?', 'c++', 'js', 'phyton', 'php', 2, "that's d
 // planeChecker("Airbus A320"); //this plane is a part of old Airbus family
 // planeChecker("Boeing B737Neo"); //this plane is not a part of Airbus family
 
-// SPLITE
-console.log("a+very+nice+string".split("+")); // ['a', 'very', 'nice', 'string']
+// // SPLITE
+// console.log("a+very+nice+string".split("+")); // ['a', 'very', 'nice', 'string']
 
-const fullName = "Sina Pirvand";
-const [firstName, LastName] = fullName.split(" ");
-console.log(firstName, LastName); // Sina Pirvand
+// const fullName = "Sina Pirvand";
+// const [firstName, LastName] = fullName.split(" ");
+// console.log(firstName, LastName); // Sina Pirvand
 
-// JOIN
-const newName = ["Mr.", firstName.toUpperCase(), LastName].join(" ");
-console.log(newName); // Mr. SINA Pirvand
+// // JOIN
+// const newName = ["Mr.", firstName.toUpperCase(), LastName].join(" ");
+// console.log(newName); // Mr. SINA Pirvand
 
-// MIXED
-function nameCapitalizer(name) {
-  const words = name.split(" ");
-  const nameUpper = [];
-  for (const word of words) {
-    nameUpper.push(word.replace(word[0], word[0].toUpperCase()));
-  }
-  console.log(nameUpper.join(" "));
-}
-nameCapitalizer("sina pirvand"); // Sina Pirvand
-nameCapitalizer("neymar junior da silva"); // Neymar Junior Da Silva
+// // MIXED
+// function nameCapitalizer(name) {
+//   const words = name.split(" ");
+//   const nameUpper = [];
+//   for (const word of words) {
+//     nameUpper.push(word.replace(word[0], word[0].toUpperCase()));
+//   }
+//   console.log(nameUpper.join(" "));
+// }
+// nameCapitalizer("sina pirvand"); // Sina Pirvand
+// nameCapitalizer("neymar junior da silva"); // Neymar Junior Da Silva
+
+// const me = "Sina";
+
+// console.log(me.padStart(10, "*")); // ******Sina
+// console.log(me.padEnd(10, "*")); // Sina******
+// console.log(me.padStart(10, "*").padEnd(15, "#")); // ******Sina#####
+
+// const MaskCreditCard = function (num) {
+//   const str = num + "";
+//   const lastFour = str.slice(-4);
+//   return lastFour.padStart(str.length, "•");
+// };
+// console.log(MaskCreditCard(12345678)); // ••••5678
+// console.log(MaskCreditCard(5047061052965197)); // ••••••••••••5197
+// console.log(MaskCreditCard("6037441058974011")); // ••••••••••••4011
+
+const sos = "HELP US! SOS... ";
+console.log(sos.repeat(10)); //HELP US! SOS... HELP US! SOS... HELP US! SOS... HELP US! SOS... HELP US! SOS... HELP US! SOS... HELP US! SOS... HELP US! SOS... HELP US! SOS... HELP US! SOS...
+
+const planesInLine = function (n) {
+  console.log(`there are ${n} planes waiting in line ${"✈".repeat(n)}`);
+};
+planesInLine(2); // there are 2 planes waiting in line ✈✈
+planesInLine(11); // there are 11 planes waiting in line ✈✈✈✈✈✈✈✈✈✈✈
+planesInLine(6); // there are 6 planes waiting in line ✈✈✈✈✈✈
