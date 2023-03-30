@@ -1,3 +1,5 @@
+"use strict";
+
 // ! CHAPTER 7
 
 // const a = document.querySelector("#test-btn");
@@ -44,7 +46,7 @@
 //   if (e.key === "Escape") console.log("escape was used");
 // });
 
-// ! CHAPTER 8
+// ! CHAPTER 8 & 9
 
 // const arr = [1, 2, 3, 4];
 // // NOTE: without destructing
@@ -659,6 +661,8 @@ index.js:563 (8) ['best prog lang?', 'c++', 'js', 'phyton', 'php', 2, "that's d
 // console.log(plane.endsWith("Neo")); //true
 // console.log(plane.endsWith("New")); //false
 
+//! CHAPTER 10
+
 // function planeChecker(model) {
 //   if (model.startsWith("Airbus") && model.endsWith("Neo"))
 //     console.log("this plane is a part of new Airbus family");
@@ -709,12 +713,106 @@ index.js:563 (8) ['best prog lang?', 'c++', 'js', 'phyton', 'php', 2, "that's d
 // console.log(MaskCreditCard(5047061052965197)); // ••••••••••••5197
 // console.log(MaskCreditCard("6037441058974011")); // ••••••••••••4011
 
-const sos = "HELP US! SOS... ";
-console.log(sos.repeat(10)); //HELP US! SOS... HELP US! SOS... HELP US! SOS... HELP US! SOS... HELP US! SOS... HELP US! SOS... HELP US! SOS... HELP US! SOS... HELP US! SOS... HELP US! SOS...
+// const sos = "HELP US! SOS... ";
+// console.log(sos.repeat(10)); //HELP US! SOS... HELP US! SOS... HELP US! SOS... HELP US! SOS... HELP US! SOS... HELP US! SOS... HELP US! SOS... HELP US! SOS... HELP US! SOS... HELP US! SOS...
 
-const planesInLine = function (n) {
-  console.log(`there are ${n} planes waiting in line ${"✈".repeat(n)}`);
+// const planesInLine = function (n) {
+//   console.log(`there are ${n} planes waiting in line ${"✈".repeat(n)}`);
+// };
+// planesInLine(2); // there are 2 planes waiting in line ✈✈
+// planesInLine(11); // there are 11 planes waiting in line ✈✈✈✈✈✈✈✈✈✈✈
+// planesInLine(6); // there are 6 planes waiting in line ✈✈✈✈✈✈
+
+// // ES6 (NEW WAY)
+// const booking = function (
+//   flightNum,
+//   numPassengers = 1,
+//   price = 190 * numPassengers
+// ) {
+//   console.log(flightNum, numPassengers, price);
+// };
+// booking("IR104", 2); //IR104 2 380
+// booking("IR441"); // IR441 1 190
+// booking("IR721", undefined); //IR721 1 190
+
+// // TRICK: skipping one parameter
+// booking("IR1001", undefined, 250); //IR1001 1 250
+// const flightNum = "IR305";
+// const passengerInfo = {
+//   name: "Sina Pirvand",
+//   age: 24,
+//   passportNum: 123456,
+// };
+// const checkIn = function (flightNum, passenger) {
+//   flightNum = "IR312";
+//   passenger.name = "Mr." + passenger.name;
+//   if (passenger.passportNum === 123456) console.log("Checked In :)");
+//   else console.log("Wrong Passport!");
+// };
+
+// checkIn(flightNum, passengerInfo);
+// console.log(flightNum); //IR305
+// console.log(passengerInfo); // {name: 'Mr.Sina Pirvand', age: 24, passportNum: 123456}
+
+// // GENERIC (NORMAL) FUNCTIONS
+// const oneWord = function (str) {
+//   return str.replace(/ /g, "").toLowerCase();
+// };
+// const upperFirstWord = function (str) {
+//   const [first, ...others] = str.split(" ");
+//   return [first.toUpperCase(), ...others].join(" ");
+// };
+// // HIGHER ORDER FUNCTION
+// const strTransformer = function (str, fn) {
+//   console.log(`original string: ${str}`);
+//   console.log(`new string: ${fn(str)}`);
+//   console.log(`transformed by: ${fn.name}`);
+//   console.log("-----------------------------------");
+// };
+// strTransformer("javascript is the Best", upperFirstWord);
+// strTransformer("javascript is the Best", oneWord);
+
+// const click = function () {
+//   console.log("you clicked");
+// };
+// document.body.addEventListener("click", click);
+
+// const hi = function () {
+//   console.log("hi");
+// };
+// ["sina", "mahyar", "saeed"].forEach(hi);
+
+// const greet = function (greeting) {
+//   return function (name) {
+//     console.log(`${greeting} ${name}`);
+//   };
+// };
+// const greeting = greet("hello");
+// console.log(greeting); // ƒ (name) {console.log(`${greeting} ${name}`);}
+// greeting("Sina"); // hello Sina
+
+// // CALL WITH BOTH ARGUMENTS AT A TIME
+// greet("hey")("Mahyar"); //hey Mahyar
+
+// // CHALLENGE: rewrite the greet func with arrow functions
+// const greetArrow = (greeting) => (name) => console.log(`${greeting} ${name}`);
+// greetArrow("Hi")("Kim"); // Hi Kim
+
+const homa = {
+  airline: "Homa",
+  iataCode: "HM",
+  bookings: [],
 };
-planesInLine(2); // there are 2 planes waiting in line ✈✈
-planesInLine(11); // there are 11 planes waiting in line ✈✈✈✈✈✈✈✈✈✈✈
-planesInLine(6); // there are 6 planes waiting in line ✈✈✈✈✈✈
+homa.book(212, "Sina");
+homa.book(695, "Ali");
+console.log(homa);
+
+const mahan = {
+  airline: "Mahan",
+  iataCode: "MA",
+  bookings: [],
+};
+
+// DOESN'T WORK => Uncaught ERROR
+const book = homa.book;
+book(700, "Saeed");
