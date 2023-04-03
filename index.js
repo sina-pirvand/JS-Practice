@@ -798,21 +798,56 @@ index.js:563 (8) ['best prog lang?', 'c++', 'js', 'phyton', 'php', 2, "that's d
 // const greetArrow = (greeting) => (name) => console.log(`${greeting} ${name}`);
 // greetArrow("Hi")("Kim"); // Hi Kim
 
+// const homa = {
+//   airline: "Homa",
+//   iataCode: "HM",
+//   bookings: [],
+//   book(flightNum, name) {
+//     console.log(
+//       `${name} booked a seat on ${this.airline} flight ${this.iataCode}-${flightNum}`
+//     );
+//     this.bookings.push({ fligh: `${this.iataCode}-${flightNum}`, name });
+//   },
+// };
+// homa.book(212, "Sina");
+// homa.book(695, "Ali");
+// console.log(homa);
+
+// const mahan = {
+//   airline: "Mahan",
+//   iataCode: "MA",
+//   bookings: [],
+// };
+
+// const book = homa.book;
+
+// book.apply(mahan, [192, "Soheil"]); //Soheil booked a seat on Mahan flight MA-192
+
+// // using an outer array
+// const flightData = [487, "kia"];
+// book.apply(mahan, flightData); //kia booked a seat on Mahan flight MA-487
+
+// // using spread operator
+// book.call(mahan, ...flightData); //kia booked a seat on Mahan flight MA-487
+
 const homa = {
   airline: "Homa",
   iataCode: "HM",
   bookings: [],
+  book(flightNum, name) {
+    console.log(
+      `${name} booked a seat on ${this.airline} flight ${this.iataCode}-${flightNum}`
+    );
+    this.bookings.push({ fligh: `${this.iataCode}-${flightNum}`, name });
+  },
 };
-homa.book(212, "Sina");
-homa.book(695, "Ali");
-console.log(homa);
-
 const mahan = {
   airline: "Mahan",
   iataCode: "MA",
   bookings: [],
 };
-
-// DOESN'T WORK => Uncaught ERROR
 const book = homa.book;
-book(700, "Saeed");
+
+const bookMahan = book.bind(mahan, 401, "Milad");
+bookMahan(662, "Ava"); //Ava booked a seat on Mahan flight MA-662
+bookMahan(100, "reza");
