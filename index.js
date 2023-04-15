@@ -830,24 +830,84 @@ index.js:563 (8) ['best prog lang?', 'c++', 'js', 'phyton', 'php', 2, "that's d
 // // using spread operator
 // book.call(mahan, ...flightData); //kia booked a seat on Mahan flight MA-487
 
-const homa = {
-  airline: "Homa",
-  iataCode: "HM",
-  bookings: [],
-  book(flightNum, name) {
-    console.log(
-      `${name} booked a seat on ${this.airline} flight ${this.iataCode}-${flightNum}`
-    );
-    this.bookings.push({ fligh: `${this.iataCode}-${flightNum}`, name });
-  },
-};
-const mahan = {
-  airline: "Mahan",
-  iataCode: "MA",
-  bookings: [],
-};
-const book = homa.book;
+// const homa = {
+//   airline: "Homa",
+//   iataCode: "HM",
+//   bookings: [],
+//   book(flightNum, name) {
+//     console.log(
+//       `${name} booked a seat on ${this.airline} flight ${this.iataCode}-${flightNum}`
+//     );
+//     this.bookings.push({ fligh: `${this.iataCode}-${flightNum}`, name });
+//   },
+// };
+// const mahan = {
+//   airline: "Mahan",
+//   iataCode: "MA",
+//   bookings: [],
+// };
+// const book = homa.book;
 
-const bookMahan = book.bind(mahan, 401, "Milad");
-bookMahan(662, "Ava"); //Ava booked a seat on Mahan flight MA-662
-bookMahan(100, "reza");
+// // const bookMahan = book.bind(mahan, 335);
+// // bookMahan("Sina"); //Sina booked a seat on Mahan flight MA-335
+
+// // //NOTE: we can not overwrite the preset values
+// // bookMahan(447, "Mahyar"); //447 booked a seat on Mahan flight MA-335
+
+// homa.planes = 180;
+// homa.buyPlane = function () {
+//   console.log(this); //{airline: 'Homa', iataCode: 'HM', bookings: Array(0), planes: 180, book: ƒ, …}
+//   this.planes++;
+//   console.log(this.planes); //181
+// };
+// const buyBtn = document.querySelector(".buy");
+// buyBtn.addEventListener("click", homa.buyPlane.bind(homa));
+
+// const tax = (rate, value) => value + value * rate;
+
+// const taxIran = tax.bind(null, 0.09);
+// console.log(taxIran(1000)); //1090
+
+// const taxGermany = tax.bind(null, 0.4);
+// console.log(taxGermany(300)); //420
+
+// function x(rate) {
+//   return function y(val) {
+//     return val + val * rate;
+//   };
+// }
+// const taxFrance = x(0.35);
+// console.log(taxFrance(500)); //675
+
+// // NOT an IIFE
+
+// function a() {
+//   console.log("I'm not an IIFE");
+// }
+// a(); //I'm not an IIFE
+// a(); //I'm not an IIFE
+
+// // IIFE
+// (function () {
+//   console.log("I'm an IIFE");
+// })();
+
+// (() => console.log("I'm an IIFE arrow func"))(); //I'm an IIFE arrow func
+
+const secureBooking = function () {
+  let passengerCount = 0;
+  return function () {
+    passengerCount++;
+    console.log(`${passengerCount} passengers reseved`);
+  };
+};
+const booker = secureBooking();
+console.log(booker);
+/* ƒ () {
+    passengerCount++;
+    console.log(`${passengerCount} passengers reseved`);
+  } */
+booker(); //1 passengers reseved
+booker(); //2 passengers reseved
+booker(); //3 passengers reseved
+console.dir(booker);
