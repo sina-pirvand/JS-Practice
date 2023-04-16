@@ -894,20 +894,43 @@ index.js:563 (8) ['best prog lang?', 'c++', 'js', 'phyton', 'php', 2, "that's d
 
 // (() => console.log("I'm an IIFE arrow func"))(); //I'm an IIFE arrow func
 
-const secureBooking = function () {
-  let passengerCount = 0;
-  return function () {
-    passengerCount++;
-    console.log(`${passengerCount} passengers reseved`);
-  };
-};
-const booker = secureBooking();
-console.log(booker);
-/* ƒ () {
-    passengerCount++;
-    console.log(`${passengerCount} passengers reseved`);
-  } */
-booker(); //1 passengers reseved
-booker(); //2 passengers reseved
-booker(); //3 passengers reseved
-console.dir(booker);
+// const secureBooking = function () {
+//   let passengerCount = 0;
+//   return function () {
+//     passengerCount++;
+//     console.log(`${passengerCount} passengers reseved`);
+//   };
+// };
+// const booker = secureBooking();
+// console.log(booker);
+// /* ƒ () {
+//     passengerCount++;
+//     console.log(`${passengerCount} passengers reseved`);
+//   } */
+// booker(); //1 passengers reseved
+// booker(); //2 passengers reseved
+// booker(); //3 passengers reseved
+// console.dir(booker);
+
+// let a;
+
+// const first = function () {
+//   const x = 20;
+//   a = function () {
+//     console.log(x * 3);
+//   };
+// };
+// const second = function () {
+//   const y = 70;
+//   a = function () {
+//     console.log(y * 2);
+//   };
+// };
+
+// first();
+// a(); // 60
+// console.dir(a); //Closure (first) {x: 20}
+
+// second();
+// a(); //140
+// console.dir(a); //Closure (second) {y: 70}
