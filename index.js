@@ -934,3 +934,13 @@ index.js:563 (8) ['best prog lang?', 'c++', 'js', 'phyton', 'php', 2, "that's d
 // second();
 // a(); //140
 // console.dir(a); //Closure (second) {y: 70}
+
+const boarding = function (n, wait) {
+  const perGroup = n / 3;
+  setTimeout(() => {
+    console.log(`we're boarding all ${n} passengrs`);
+    console.log(`there are 3 groupes,each with ${perGroup} passengers`);
+  }, wait * 1000);
+  console.log(`we'll start boarding in ${wait} seconds`);
+};
+boarding(120, 5);
