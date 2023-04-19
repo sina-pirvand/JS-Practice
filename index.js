@@ -935,12 +935,62 @@ index.js:563 (8) ['best prog lang?', 'c++', 'js', 'phyton', 'php', 2, "that's d
 // a(); //140
 // console.dir(a); //Closure (second) {y: 70}
 
-const boarding = function (n, wait) {
-  const perGroup = n / 3;
-  setTimeout(() => {
-    console.log(`we're boarding all ${n} passengrs`);
-    console.log(`there are 3 groupes,each with ${perGroup} passengers`);
-  }, wait * 1000);
-  console.log(`we'll start boarding in ${wait} seconds`);
-};
-boarding(120, 5);
+// const boarding = function (n, wait) {
+//   const perGroup = n / 3;
+//   setTimeout(() => {
+//     console.log(`we're boarding all ${n} passengrs`);
+//     console.log(`there are 3 groupes,each with ${perGroup} passengers`);
+//   }, wait * 1000);
+//   console.log(`we'll start boarding in ${wait} seconds`);
+// };
+// boarding(120, 5);
+
+// const arr = ["a", "b", "c", "d", "e"];
+
+// console.log(arr.slice(2)); // ['c', 'd', 'e']
+// console.log(arr.slice(2, 4)); //['c', 'd']
+// console.log(arr.slice(-1)); //['e']
+// console.log(arr.slice(1, -2)); //['b', 'c']
+// console.log(arr.slice()); // ['a', 'b', 'c', 'd', 'e']
+// // SAME AS:
+// console.log([...arr]); // ['a', 'b', 'c', 'd', 'e']
+
+// const arr = ["a", "b", "c", "d", "e"];
+// const arr2 = ["a", "b", "c", "d", "e"];
+// const arr3 = ["a", "b", "c", "d", "e"];
+// const arr4 = ["a", "b", "c", "d", "e"];
+// console.log(arr.splice(-1)); //['e']
+// console.log(arr); //['a', 'b', 'c', 'd']
+// console.log(arr2.splice(1, 3)); //['b', 'c', 'd']
+// console.log(arr2); //['a', 'e']
+// console.log(arr3.splice(1, -2)); //[]
+// console.log(arr3); //['a', 'b', 'c', 'd', 'e']
+// console.log(arr4.splice(-2)); //['d', 'e']
+// console.log(arr4); //['a', 'b', 'c']
+
+// const arr = ["a", "b", "c", "d", "e"];
+// console.log(arr.reverse()); //['e', 'd', 'c', 'b', 'a']
+// console.log(arr); //['e', 'd', 'c', 'b', 'a']
+
+// const arr = ["a", "b", "c", "d", "e"];
+// const arr2 = ["f", "g", "h", "i", "j"];
+// console.log(arr.concat(arr2)); //['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
+
+// console.log([...arr, ...arr2]); //['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
+
+// const arr = ["a", "b", "c", "d", "e"];
+// console.log(arr.join(" _ ")); //a _ b _ c _ d _ e
+
+const arr = ["a", "b", "c", "d", "e"];
+console.log(arr[1]); //b
+console.log(arr.at(1)); //b
+
+// get last element
+// old
+console.log(arr[arr.length - 1]); //e
+console.log(arr.slice(-1)[0]); //e
+// at
+console.log(arr.at(-1)); //e
+
+//strings
+console.log("Sina".at(-2)); //n
