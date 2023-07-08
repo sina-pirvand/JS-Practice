@@ -981,16 +981,37 @@ index.js:563 (8) ['best prog lang?', 'c++', 'js', 'phyton', 'php', 2, "that's d
 // const arr = ["a", "b", "c", "d", "e"];
 // console.log(arr.join(" _ ")); //a _ b _ c _ d _ e
 
-const arr = ["a", "b", "c", "d", "e"];
-console.log(arr[1]); //b
-console.log(arr.at(1)); //b
+// const arr = ["a", "b", "c", "d", "e"];
+// console.log(arr[1]); //b
+// console.log(arr.at(1)); //b
 
-// get last element
-// old
-console.log(arr[arr.length - 1]); //e
-console.log(arr.slice(-1)[0]); //e
-// at
-console.log(arr.at(-1)); //e
+// // get last element
+// // old
+// console.log(arr[arr.length - 1]); //e
+// console.log(arr.slice(-1)[0]); //e
+// // at
+// console.log(arr.at(-1)); //e
 
-//strings
-console.log("Sina".at(-2)); //n
+// //strings
+// console.log("Sina".at(-2)); //n
+
+const movements = [1000, -250, 330, -410];
+
+//for of
+for (const [i, movement] of movements.entries()) {
+  if (movement > 0)
+    console.log(`Movement ${i + 1}: you deposited ${movement}$`);
+  else console.log(`Movement ${i + 1}: you eithdrew ${Math.abs(movement)}$`);
+}
+
+//forEach
+movements.forEach(function (movement, idx, arr) {
+  if (movement > 0)
+    console.log(`Movement ${idx + 1}: you deposited ${movement}$`);
+  else console.log(`Movement ${idx + 1}: you eithdrew ${Math.abs(movement)}$`);
+});
+
+// Movement 1: you deposited 1000$
+// Movement 2: you eithdrew 250$
+// Movement 3: you deposited 330$
+// Movement 4: you eithdrew 410$
