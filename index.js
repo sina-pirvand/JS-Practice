@@ -995,23 +995,51 @@ index.js:563 (8) ['best prog lang?', 'c++', 'js', 'phyton', 'php', 2, "that's d
 // //strings
 // console.log("Sina".at(-2)); //n
 
-const movements = [1000, -250, 330, -410];
+// const movements = [1000, -250, 330, -410];
 
-//for of
-for (const [i, movement] of movements.entries()) {
-  if (movement > 0)
-    console.log(`Movement ${i + 1}: you deposited ${movement}$`);
-  else console.log(`Movement ${i + 1}: you eithdrew ${Math.abs(movement)}$`);
-}
+// //for of
+// for (const [i, movement] of movements.entries()) {
+//   if (movement > 0)
+//     console.log(`Movement ${i + 1}: you deposited ${movement}$`);
+//   else console.log(`Movement ${i + 1}: you eithdrew ${Math.abs(movement)}$`);
+// }
 
-//forEach
-movements.forEach(function (movement, idx, arr) {
-  if (movement > 0)
-    console.log(`Movement ${idx + 1}: you deposited ${movement}$`);
-  else console.log(`Movement ${idx + 1}: you eithdrew ${Math.abs(movement)}$`);
+// //forEach
+// movements.forEach(function (movement, idx, arr) {
+//   if (movement > 0)
+//     console.log(`Movement ${idx + 1}: you deposited ${movement}$`);
+//   else console.log(`Movement ${idx + 1}: you eithdrew ${Math.abs(movement)}$`);
+// });
+
+// // Movement 1: you deposited 1000$
+// // Movement 2: you eithdrew 250$
+// // Movement 3: you deposited 330$
+// // Movement 4: you eithdrew 410$
+
+//! Map
+const currencies = new Map([
+  ["USD", "United States Dollar"],
+  ["EUR", "Euro"],
+  ["GBP", "Pound Sterling"],
+]);
+
+currencies.forEach((value, key, map) => {
+  console.log(`${key}:${value}`);
+  /*
+ USD:United States Dollar
+ EUR:Euro
+ GBP:Pound Sterling
+  */
 });
 
-// Movement 1: you deposited 1000$
-// Movement 2: you eithdrew 250$
-// Movement 3: you deposited 330$
-// Movement 4: you eithdrew 410$
+//! Set
+const currenciesUnique = new Set(["USD", "GBP", "USD", "EUR", "EUR"]);
+
+currenciesUnique.forEach((value, _, set) => {
+  console.log(`${value}:${value}`);
+  /*
+  USD:USD
+  GBP:GBP
+  EUR:EUR
+  */
+});
