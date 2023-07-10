@@ -1016,30 +1016,52 @@ index.js:563 (8) ['best prog lang?', 'c++', 'js', 'phyton', 'php', 2, "that's d
 // // Movement 3: you deposited 330$
 // // Movement 4: you eithdrew 410$
 
-//! Map
-const currencies = new Map([
-  ["USD", "United States Dollar"],
-  ["EUR", "Euro"],
-  ["GBP", "Pound Sterling"],
-]);
+// //! Map
+// const currencies = new Map([
+//   ["USD", "United States Dollar"],
+//   ["EUR", "Euro"],
+//   ["GBP", "Pound Sterling"],
+// ]);
 
-currencies.forEach((value, key, map) => {
-  console.log(`${key}:${value}`);
-  /*
- USD:United States Dollar
- EUR:Euro
- GBP:Pound Sterling
-  */
+// currencies.forEach((value, key, map) => {
+//   console.log(`${key}:${value}`);
+//   /*
+//  USD:United States Dollar
+//  EUR:Euro
+//  GBP:Pound Sterling
+//   */
+// });
+
+// //! Set
+// const currenciesUnique = new Set(["USD", "GBP", "USD", "EUR", "EUR"]);
+
+// currenciesUnique.forEach((value, _, set) => {
+//   console.log(`${value}:${value}`);
+//   /*
+//   USD:USD
+//   GBP:GBP
+//   EUR:EUR
+//   */
+// });
+
+const movements = [1000, -200, -340, 120];
+const eurToUsd = 1.1;
+
+//! map method
+const movToUsd = movements.map((mov) => {
+  return mov * eurToUsd;
 });
+console.log(movToUsd); //[1100, -220.00000000000003, -374.00000000000006, 132]
 
-//! Set
-const currenciesUnique = new Set(["USD", "GBP", "USD", "EUR", "EUR"]);
+//! with for of
+const arr = [];
+for (const mov of movements) arr.push(mov * eurToUsd);
+console.log(arr); //[1100, -220.00000000000003, -374.00000000000006, 132]
 
-currenciesUnique.forEach((value, _, set) => {
-  console.log(`${value}:${value}`);
-  /*
-  USD:USD
-  GBP:GBP
-  EUR:EUR
-  */
-});
+//! map method example 2:
+const movementInfo = movements.map(
+  (mov, idx) =>
+    `Movment ${idx + 1}: ${mov > 0 ? "Deposited" : "Withdrew"} ${Math.abs(mov)}`
+);
+console.log(movementInfo);
+//['Movment 1: Deposited 1000', 'Movment 2: Withdrew 200', 'Movment 3: Withdrew 340', 'Movment 4: Deposited 120']
