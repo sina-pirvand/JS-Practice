@@ -1044,24 +1044,34 @@ index.js:563 (8) ['best prog lang?', 'c++', 'js', 'phyton', 'php', 2, "that's d
 //   */
 // });
 
-const movements = [1000, -200, -340, 120];
-const eurToUsd = 1.1;
+// const movements = [1000, -200, -340, 120];
+// const eurToUsd = 1.1;
 
-//! map method
-const movToUsd = movements.map((mov) => {
-  return mov * eurToUsd;
-});
-console.log(movToUsd); //[1100, -220.00000000000003, -374.00000000000006, 132]
+// //! map method
+// const movToUsd = movements.map((mov) => {
+//   return mov * eurToUsd;
+// });
+// console.log(movToUsd); //[1100, -220.00000000000003, -374.00000000000006, 132]
 
-//! with for of
-const arr = [];
-for (const mov of movements) arr.push(mov * eurToUsd);
-console.log(arr); //[1100, -220.00000000000003, -374.00000000000006, 132]
+// //! with for of
+// const arr = [];
+// for (const mov of movements) arr.push(mov * eurToUsd);
+// console.log(arr); //[1100, -220.00000000000003, -374.00000000000006, 132]
 
-//! map method example 2:
-const movementInfo = movements.map(
-  (mov, idx) =>
-    `Movment ${idx + 1}: ${mov > 0 ? "Deposited" : "Withdrew"} ${Math.abs(mov)}`
-);
-console.log(movementInfo);
-//['Movment 1: Deposited 1000', 'Movment 2: Withdrew 200', 'Movment 3: Withdrew 340', 'Movment 4: Deposited 120']
+// //! map method example 2:
+// const movementInfo = movements.map(
+//   (mov, idx) =>
+//     `Movment ${idx + 1}: ${mov > 0 ? "Deposited" : "Withdrew"} ${Math.abs(mov)}`
+// );
+// console.log(movementInfo);
+// //['Movment 1: Deposited 1000', 'Movment 2: Withdrew 200', 'Movment 3: Withdrew 340', 'Movment 4: Deposited 120']
+
+//! MAX VAL WITH REDUCE
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+const maxVal = movements.reduce((acc, cur) => {
+  if (acc > cur) return acc;
+  else return cur;
+}, movements[0]);
+
+console.log(maxVal);
