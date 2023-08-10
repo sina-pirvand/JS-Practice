@@ -1115,3 +1115,15 @@ index.js:563 (8) ['best prog lang?', 'c++', 'js', 'phyton', 'php', 2, "that's d
 
 // console.log(accounts.find((acc) => acc.owner === "Jessica Davis"));
 // //{owner: 'Jessica Davis', movements: Array(8), interestRate: 1.5, pin: 2222}
+
+// //! SOME METHOD
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// //Equality
+// console.log(movements.includes(-130)); //true
+
+// //Condition
+// console.log(movements.some((el) => el > 1500)); //true
+// console.log(movements.some((el) => el > 3500)); //false
+
+// console.log(movements.some((el) => el === -130)); //true
