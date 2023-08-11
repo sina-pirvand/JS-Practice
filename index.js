@@ -1127,3 +1127,18 @@ index.js:563 (8) ['best prog lang?', 'c++', 'js', 'phyton', 'php', 2, "that's d
 // console.log(movements.some((el) => el > 3500)); //false
 
 // console.log(movements.some((el) => el === -130)); //true
+
+// //! EVERY METHOD
+
+// const movementsPositive = [200, 450, 400, 3000, 650, 130, 70, 1300];
+
+// console.log(movements.every((el) => el > 0)); //false
+// console.log(movementsPositive.every((el) => el > 0)); //true
+
+//! SEPERATE CALLBACK
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+const deposite = (mov) => mov > 0;
+console.log(movements.some(deposite)); //true
+console.log(movements.every(deposite)); //false
+console.log(movements.filter(deposite)); //[200, 450, 3000, 70, 1300]
